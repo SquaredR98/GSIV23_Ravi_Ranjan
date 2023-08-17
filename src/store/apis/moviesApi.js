@@ -10,9 +10,9 @@ const moviesApi = createApi({
   endpoints(builder) {
     return {
       fetchUpcomingMovies: builder.query({
-        query: () => {
+        query: (page) => {
           return {
-            url: `/movie/upcoming?api_key=${apiKey}`,
+            url: `/movie/upcoming?page=${page}&api_key=${apiKey}`,
             method: "GET",
           };
         },
