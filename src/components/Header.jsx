@@ -3,13 +3,16 @@ import { BiSolidHome } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 import { useSearchMovieByKeywordQuery } from "../store/apis/moviesApi";
 
-const SearchResults = ({ data, isFetching = true }) => {
+const SearchResults = ({ data }) => {
   const navigate = useNavigate();
   return (
-    <div className="fixed top-16 bg-white border rounded shadow-md w-1/3 p-1">
+    <div className="fixed top-16 bg-white border rounded shadow-md w-1/3 p-1 transition-all duration-700">
       {data.length > 0 &&
         data.slice(0, 3).map((element) => (
-          <div className="flex" onClick={() => navigate(`${element.id}`)}>
+          <div
+            className="flex hover:cursor-pointer hover:bg-[#DFDFDF] rounded-sm transition-all duration-500"
+            onClick={() => navigate(`${element.id}`)}
+          >
             <div className="w-1/6 p-1">
               <img
                 src={`https://image.tmdb.org/t/p/w500/${element?.poster_path}`}
